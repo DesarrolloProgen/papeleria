@@ -11,7 +11,7 @@ const Main = () => {
   const [usuario, setUsuario] = useState();
   const [response, setResponse] = useState();
 
-  const [formValues, handleInputChange] = useForm({});
+  const [formValues, handleInputChange, setValues] = useForm({});
 
   const handleOnchangeUser = ({ target }) => {
     const user = response.filter(
@@ -22,12 +22,26 @@ const Main = () => {
 
   const insertItem = (e) => {
     e.preventDefault();
+    if (!validarItem()) return false;
     setItems([...items, formValues]);
+    setValues({});
     document.getElementById("formItems").reset();
     document.getElementById("recurso").selectedIndex = 0;
     document.getElementById("unidad").selectedIndex = 0;
     document.getElementById("usuario").selectedIndex = 0;
   };
+
+  const validarItem = () => {
+    if(formValues.recurso == null || formValues.cantidad == null || formValues.unidad === null){
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Por favor verifique los que todos los datos de los items esten completos',
+      });
+      return false
+    }
+    return true
+  }
 
   const deleteItem = (e, index) => {
     e.preventDefault();
@@ -53,6 +67,25 @@ const Main = () => {
       now.getSeconds()
     );
 
+    
+      if(items.length === 0 ){
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'No ha agregado items a su solicitud',
+        });
+        return false
+      }
+
+      if(usuario === undefined){
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Por favor seleccione el usuario que esta solicitando',
+        });
+        return false
+      }
+
     const data = {
       fecha: fecha,
       items: items,
@@ -70,7 +103,7 @@ const Main = () => {
     };
     const url =
       "https://prod-16.brazilsouth.logic.azure.com:443/workflows/391357dc745d44958716590706bedbf4/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=6r43m0E7nN5BVo-hqhy56bAzDtJIYasrAWG6ECwnA-4";
-
+      
     Swal.fire({
       title: "¿Esta seguro?",
       text: "Esta seguro de enviar su solicitud",
@@ -81,7 +114,7 @@ const Main = () => {
       confirmButtonText: "Confirmar",
       cancelButtonText: "Cancelar",
     }).then((result) => {
-      if (result.isConfirmed) {
+      if (result.isConfirmed) {  
         axios.post(url, settings).then((response) => {
           Swal.fire({
             title: "",
