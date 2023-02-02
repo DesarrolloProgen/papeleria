@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/papeleria/static/css/main.04a8cf96.css",
+    "main.js": "/papeleria/static/js/main.22ce920a.js",
+    "index.html": "/papeleria/index.html",
+    "main.04a8cf96.css.map": "/papeleria/static/css/main.04a8cf96.css.map",
+    "main.22ce920a.js.map": "/papeleria/static/js/main.22ce920a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.04a8cf96.css",
+    "static/js/main.22ce920a.js"
+  ]
+}
