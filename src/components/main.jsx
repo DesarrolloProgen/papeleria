@@ -57,15 +57,12 @@ const Main = () => {
 
   const saverequest = (e) => {
     e.preventDefault();
-    var now = new Date();
-    var fecha = new Date(
-      now.getFullYear(),
-      now.getMonth() + 1 < 10 ? "0" + (now.getMonth() + 1) : now.getMonth() + 1,
-      now.getDate(),
-      now.getHours(),
-      now.getMinutes() < 10 ? "0" + now.getMinutes() : now.getMinutes(),
-      now.getSeconds()
-    );
+    vvar now = new Date();
+      var fecha = (now.getMonth() + 1) + '-' + now.getDate() + '-' + now.getFullYear();
+      var minutos = now.getMinutes()
+      if(minutos<10) minutos="0"+minutos;
+      var hora = now.getHours() + ':' + minutos;
+      var fechayHora = fecha + ' ' + hora;
 
     
       if(items.length === 0 ){
@@ -87,7 +84,7 @@ const Main = () => {
       }
 
     const data = {
-      fecha: fecha,
+      fecha: fechayHora,
       items: items,
       usuario: usuario[0].Usuarios,
       dependencia: usuario[0].Dependencia,
