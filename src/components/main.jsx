@@ -57,7 +57,7 @@ const Main = () => {
 
   const saverequest = (e) => {
     e.preventDefault();
-    vvar now = new Date();
+    var now = new Date();
       var fecha = (now.getMonth() + 1) + '-' + now.getDate() + '-' + now.getFullYear();
       var minutos = now.getMinutes()
       if(minutos<10) minutos="0"+minutos;
