@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/papeleria/static/css/main.04a8cf96.css",
-    "main.js": "/papeleria/static/js/main.b5b8b4d8.js",
+    "main.js": "/papeleria/static/js/main.87267cd7.js",
     "index.html": "/papeleria/index.html",
     "main.04a8cf96.css.map": "/papeleria/static/css/main.04a8cf96.css.map",
-    "main.b5b8b4d8.js.map": "/papeleria/static/js/main.b5b8b4d8.js.map"
+    "main.87267cd7.js.map": "/papeleria/static/js/main.87267cd7.js.map"
   },
   "entrypoints": [
     "static/css/main.04a8cf96.css",
-    "static/js/main.b5b8b4d8.js"
+    "static/js/main.87267cd7.js"
   ]
 }
