@@ -174,7 +174,7 @@ const Main = () => {
                 name="cantidad"
                 id="cantidad"
                 placeholder="Ingrese la cantidad que va a solicitar"
-                onChange={handleInputChange}
+                onBlur={handleInputChange}
               ></input>
             </div>
             <label htmlFor="unidad" className="col-sm-1 offset-md-1">
